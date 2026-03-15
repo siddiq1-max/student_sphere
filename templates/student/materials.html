@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row mt-4">
+    <div class="col-12">
+        <h2 class="mb-4">Study Materials</h2>
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary mb-3">Back to Dashboard</a>
+        
+        <div class="card shadow-sm">
+            <div class="card-body p-0">
+                {% if materials %}
+                <ul class="list-group list-group-flush rounded border-0">
+                    {% for mat in materials %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                        <div>
+                            <h6 class="mb-1 text-primary">{{ mat.title }}</h6>
+                            <small class="text-muted">{{ mat.subject.name }} • Uploaded by {{ mat.uploaded_by.user.first_name|default:mat.uploaded_by.user.username }} on {{ mat.uploaded_at|date:"M d, Y" }}</small>
+                        </div>
+                        <a href="{{ mat.file.url }}" class="btn btn-sm btn-outline-success" target="_blank">Download File</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <div class="p-4 text-center text-muted">No materials available for your subjects.</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row mt-4">
+    <div class="col-12">
+        <h2 class="mb-4">Teacher Dashboard</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-info h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">My Subjects</h5>
+                        <p class="card-text">View the subjects allocated to you.</p>
+                        <a href="{% url 'teacher_subjects' %}" class="btn btn-light mt-auto">View Subjects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-warning h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Mark Attendance</h5>
+                        <p class="card-text">Mark daily attendance for your students.</p>
+                        <a href="#" class="btn btn-light mt-auto">Mark Attendance</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-danger h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Upload Marks/Files</h5>
+                        <p class="card-text">Declare results or upload study materials.</p>
+                        <a href="#" class="btn btn-light mt-auto">Manage Academic Records</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

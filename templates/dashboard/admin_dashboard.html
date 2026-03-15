@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row mt-4">
+    <div class="col-12">
+        <h2 class="mb-4">Admin Dashboard</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-primary h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Manage Subjects</h5>
+                        <p class="card-text">View, add, and allocate subjects to teachers and students.</p>
+                        <a href="#" class="btn btn-light mt-auto">Go to Subjects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-success h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Manage Users</h5>
+                        <p class="card-text">View and manage teachers and students.</p>
+                        <a href="{% url 'admin:index' %}" class="btn btn-light mt-auto">Go to Admin View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

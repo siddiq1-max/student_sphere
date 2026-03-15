@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row mt-4">
+    <div class="col-md-5 mb-4">
+        <h2 class="mb-4">Upload Material: {{ subject.name }}</h2>
+        <a href="{% url 'teacher_subjects' %}" class="btn btn-secondary mb-3">Back to Subjects</a>
+        
+        <div class="card shadow-sm">
+            <div class="card-header bg-white fw-bold">New Material</div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="file" class="form-label">File</label>
+                        <input type="file" class="form-control" id="file" name="file" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Upload</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-7 mb-4">
+        <h2 class="mb-4">Uploaded Materials</h2>
+        {% if materials %}
+            <div class="list-group shadow-sm">
+                {% for mat in materials %}
+                    <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1">{{ mat.title }}</h6>
+                            <small class="text-muted">Uploaded on: {{ mat.uploaded_at|date:"M d, Y" }}</small>
+                        </div>
+                        <a href="{{ mat.file.url }}" class="btn btn-sm btn-outline-info" target="_blank">View / Download</a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-info shadow-sm">No materials uploaded yet.</div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
