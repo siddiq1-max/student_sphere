@@ -11,6 +11,9 @@ Student Sphere is a full-stack role-based academic management system built using
 - **Real-Time Notifications**: Integrated notification engine alerting students of new marks and materials.
 - **Modern UI**: Polished Glassmorphism design system integrated with Bootstrap 5.
 
+ ## Host link here 
+ http://siddiq.pythonanywhere.com
+
 ## Installation & Local Setup
 1. Clone the repository: 
    ```bash
@@ -44,3 +47,5 @@ Student Sphere is a full-stack role-based academic management system built using
 
 ## License
 MIT License
+
+
